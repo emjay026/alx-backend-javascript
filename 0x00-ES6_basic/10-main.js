@@ -1,8 +1,3 @@
-export default function appendToEachArrayValue(array, appendString) {
-  for (let value of array) {
-    const index = array.indexOf(value);
-    array[index] = appendString + value;
-  }
+import appendToEachArrayValue from './10-loops';
 
-  return array;
-}
+console.log(appendToEachArrayValue(['appended', 'fixed', 'displayed'], 'correctly-'));
