@@ -1,6 +1,6 @@
 import { uploadPhoto, createUser } from './utils';
 
-function handleProfileSignup() {
+export default function handleProfileSignup() {
   const photoPromise = uploadPhoto();
   const userPromise = createUser();
 
@@ -9,11 +9,8 @@ function handleProfileSignup() {
       // Log firstName and lastName from userResponse
       console.log(`${photoResponse.body} ${userResponse.firstName} ${userResponse.lastName}`);
     })
-    .catch((error) => {
+    .catch(() => {
       // Log the error in case of failure
-      console.error('Error:', error);
       console.log('Signup system offline');
     });
 }
-
-export default handleProfileSignup;
