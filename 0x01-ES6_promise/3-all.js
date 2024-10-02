@@ -7,7 +7,7 @@ export default function handleProfileSignup() {
   Promise.all([photoPromise, userPromise])
     .then(([photoResponse, userResponse]) => {
       // Log firstName and lastName from userResponse
-      console.log(`${photoResponse.body} ${userResponse.firstName} ${userResponse.lastName}`);
+      if (photoResponse.status === 200) console.log(`${photoResponse.body} ${userResponse.firstName} ${userResponse.lastName}`);
     })
     .catch(() => {
       // Log the error in case of failure
