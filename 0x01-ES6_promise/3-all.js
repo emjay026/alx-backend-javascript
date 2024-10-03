@@ -5,7 +5,7 @@ async function handleProfileSignup() {
     const photoResponse = await uploadPhoto();
     const userResponse = await createUser();
 
-    // Log firstName and lastName from userResponse
+    // Log the photo body and user's first and last name
     if (photoResponse.status === 200) {
       console.log(`${photoResponse.body} ${userResponse.firstName} ${userResponse.lastName}`);
     }
