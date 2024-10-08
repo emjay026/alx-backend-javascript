@@ -1,9 +1,4 @@
 function cleanSet(inputSet, startString) {
-  // Return an empty string if startString is empty
-  if (!startString) {
-    return '';
-  }
-
   const result = [];
 
   inputSet.forEach((value) => {
