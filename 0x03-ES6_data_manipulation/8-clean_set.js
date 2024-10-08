@@ -1,9 +1,6 @@
 function cleanSet(inputSet, startString) {
   // Return an empty string if startString is empty
-  if (!startString
-    || startString.trim().length === 0
-    || typeof startString !== 'string'
-    || !Array.isArray(inputSet)) {
+  if (!startString) {
     return '';
   }
 
