@@ -10,8 +10,7 @@ function cleanSet(inputSet, startString) {
   const result = [];
 
   inputSet.forEach((value) => {
-    // Check if value is a string
-    if (typeof value === 'string' && value.startsWith(startString)) {
+    if (value.startsWith(startString)) {
       result.push(value.slice(startString.length)); // Append the rest of the string
     }
   });
