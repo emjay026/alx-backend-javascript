@@ -7,7 +7,8 @@ function cleanSet(inputSet, startString) {
   const result = [];
 
   inputSet.forEach((value) => {
-    if (typeof value === 'string' && value.startsWith(startString)) {
+    const stringValue = String(value);
+    if (stringValue.startsWith(startString)) {
       result.push(value.slice(startString.length)); // Append the rest of the string
     }
   });
