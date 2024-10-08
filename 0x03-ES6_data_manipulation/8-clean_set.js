@@ -1,13 +1,13 @@
 function cleanSet(inputSet, startString) {
   // Return an empty string if startString is empty
-  if (!startString) {
-    return '';
-  }
+  // if (!startString) {
+  //   return '';
+  // }
 
   const result = [];
 
   inputSet.forEach((value) => {
-    if (value.startsWith(startString)) {
+    if (typeof value === 'string' && value.startsWith(startString)) {
       result.push(value.slice(startString.length)); // Append the rest of the string
     }
   });
