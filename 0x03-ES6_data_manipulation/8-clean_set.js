@@ -1,16 +1,9 @@
 function cleanSet(inputSet, startString) {
-  // Check if inputSet is an array
-  if (!Array.isArray(inputSet)) {
-    throw new TypeError('inputSet must be an array');
-  }
-
-  // Check if startString is a string
-  if (typeof startString !== 'string') {
-    throw new TypeError('startString must be a string');
-  }
-
   // Return an empty string if startString is empty
-  if (!startString) {
+  if (!startString
+    || startString.trim().length === 0
+    || typeof startString !== 'string'
+    || !Array.isArray(inputSet)) {
     return '';
   }
 
