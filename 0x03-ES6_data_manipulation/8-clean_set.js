@@ -1,8 +1,15 @@
 function cleanSet(inputSet, startString) {
+  // Return an empty string if startString is empty
+  if (!startString) {
+    return '';
+  }
+
+  const ss = String(startString);
+
   const result = [];
 
   inputSet.forEach((value) => {
-    if (typeof value === 'string' && value.startsWith(startString)) {
+    if (typeof value === 'string' && value.startsWith(ss)) {
       result.push(value.slice(startString.length)); // Append the rest of the string
     }
   });
