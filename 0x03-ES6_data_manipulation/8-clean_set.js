@@ -1,7 +1,7 @@
 function cleanSet(inputSet, startString) {
-  if (!startString) { // Return an empty string if startString is empty
-    return '';
-  }
+  // if (!startString) { // Return an empty string if startString is empty
+  //   return '';
+  // }
 
   const result = [];
   inputSet.forEach((value) => {
