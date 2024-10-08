@@ -1,23 +1,16 @@
-function cleanSet(set, startString) {
-  // If the startString is empty, return an empty string
-  if (startString === '') {
+function cleanSet(inputSet, startString) {
+  if (!startString) { // Return an empty string if startString is empty
     return '';
   }
 
-  // Create an array to collect matching strings
   const result = [];
-
-  // Iterate through the set
-  for (const item of set) {
-    // Check if the item starts with the specified startString
-    if (item.startsWith(startString)) {
-      // Append the rest of the string (excluding the starting part)
-      result.push(item.slice(startString.length));
+  inputSet.forEach((value) => {
+    if (value.startsWith(startString)) {
+      result.push(value.slice(startString.length)); // Append the rest of the string
     }
-  }
+  });
 
-  // Return the joined string separated by '-'
-  return result.join('-');
+  return result.length > 0 ? result.join('-') : '';
 }
 
 export default cleanSet;
