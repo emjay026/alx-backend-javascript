@@ -28,8 +28,9 @@ askForName();
 // Listen for the 'close' event
 rl.on('close', () => {
   // Check if the input is coming from a pipe
-  if (!process.stdin.isTTY) {
-    // This message should only display in non-interactive mode (piped input)
-    console.log('This important software is now closing');
-  }
+  console.log('This important software is now closing');
+//   if (!process.stdin.isTTY) {
+//     // This message should only display in non-interactive mode (piped input)
+//     console.log('This important software is now closing');
+//   }
 });
