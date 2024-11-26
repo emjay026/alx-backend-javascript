@@ -27,7 +27,7 @@ function countStudents(path) {
   const studentFields = {};
 
   // Initialize student counts per field
-  for (let i = 1; i < lines.length; i++) {
+  for (let i = 1; i < lines.length; i += 1) { // Replaced ++ with += 1
     const line = lines[i].split(',');
     const firstName = line[0];
     const field = line[fieldIdx];
@@ -38,7 +38,7 @@ function countStudents(path) {
         studentCounts[field] = 0;
         studentFields[field] = [];
       }
-      studentCounts[field]++;
+      studentCounts[field] += 1; // Replaced ++ with += 1
       studentFields[field].push(firstName);
     }
   }
@@ -51,8 +51,10 @@ function countStudents(path) {
 
   // Log number of students per field and list of first names
   for (const field in studentCounts) {
-    console.log(`Number of students in ${field}: ${studentCounts[field]}. List: ${studentFields[field].join(', ')}`);
+    if (Object.prototype.hasOwnProperty.call(studentCounts, field)) { // Added guard for for-in loop
+      console.log(`Number of students in ${field}: ${studentCounts[field]}. List: ${studentFields[field].join(', ')}`);
+    }
   }
 }
 
-module.exports = countStudents;
+module.exports = countStudents; // Export the function for testing or reuse
