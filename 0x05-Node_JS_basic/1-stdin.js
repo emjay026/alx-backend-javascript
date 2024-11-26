@@ -9,7 +9,7 @@ process.stdin.on('readable', () => {
   // If data is available, write it to standard output
   if (stream) {
     // Remove any trailing newline characters and display the user's name
-    process.stdout.write(`Your name is: ${stream}\n`);
+    process.stdout.write(`Your name is: ${stream}`);
   }
 });
 
