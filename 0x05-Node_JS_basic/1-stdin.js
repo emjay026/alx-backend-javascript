@@ -1,36 +1,20 @@
-// Import the 'readline' module to handle input from the command line
-const readline = require('readline');
+// Prompt the user with a welcome message and ask for their name
+process.stdout.write('Welcome to Holberton School, what is your name?\n');
 
-// Create an interface to read from standard input and output
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
+// Listen for readable events on standard input
+process.stdin.on('readable', () => {
+  // Read data from standard input
+  const stream = process.stdin.read();
+
+  // If data is available, write it to standard output
+  if (stream) {
+    // Remove any trailing newline characters and display the user's name
+    process.stdout.write(`Your name is: ${stream}\n`);
+  }
 });
 
-// Function to handle user input
-function askForName() {
-  // Display the welcome message
-  console.log('Welcome to Holberton School, what is your name?');
-
-  // Prompt the user to enter their name
-  rl.question('', (name) => {
-    // Display the user's name
-    console.log(`Your name is: ${name}`);
-
-    // Close the readline interface
-    rl.close();
-  });
-}
-
-// Call the function to start asking for the user's name
-askForName();
-
-// Listen for the 'close' event
-rl.on('close', () => {
-  // Check if the input is coming from a pipe
-  console.log('This important software is now closing');
-//   if (!process.stdin.isTTY) {
-//     // This message should only display in non-interactive mode (piped input)
-//     console.log('This important software is now closing');
-//   }
+// Listen for the 'end' event on standard input
+process.stdin.on('end', () => {
+  // Display a closing message when input ends
+  process.stdout.write('This important software is now closing\n');
 });
